@@ -1,0 +1,91 @@
+\doxysection{Commit Class Reference}
+\hypertarget{classCommit}{}\label{classCommit}\index{Commit@{Commit}}
+
+
+Collaboration diagram for Commit\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classCommit__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCommit_ab369173f114c953a7e9e28b5bb30334e}\label{classCommit_ab369173f114c953a7e9e28b5bb30334e} 
+{\bfseries Commit} (const QString \&message, const \mbox{\hyperlink{classTree}{Tree}} \&project\+Tree, const QString \&author, const QString \&parent\+Hash, const QString \&branch)
+\item 
+\Hypertarget{classCommit_a8b24a897bf70d93cd8bad69a2eb74d86}\label{classCommit_a8b24a897bf70d93cd8bad69a2eb74d86} 
+QString {\bfseries get\+Tree\+Hash} () const
+\item 
+\Hypertarget{classCommit_a635d2d33e9a9b9bc4be98b6b81314a7d}\label{classCommit_a635d2d33e9a9b9bc4be98b6b81314a7d} 
+QString {\bfseries get\+Hash} () const
+\item 
+\Hypertarget{classCommit_a042c1adc48651ee93ff29b2c1b8ecf4a}\label{classCommit_a042c1adc48651ee93ff29b2c1b8ecf4a} 
+QString {\bfseries get\+Author} () const
+\item 
+\Hypertarget{classCommit_ac1ad80be75cf9d1812259933ff2ad264}\label{classCommit_ac1ad80be75cf9d1812259933ff2ad264} 
+QString {\bfseries get\+Message} () const
+\item 
+\Hypertarget{classCommit_ab29985db0db9b88f809eb36be386e97f}\label{classCommit_ab29985db0db9b88f809eb36be386e97f} 
+QString {\bfseries get\+Parent\+Hash} () const
+\item 
+\Hypertarget{classCommit_ac81d8a1b690d9b8ca9701ba4b1f4d6d5}\label{classCommit_ac81d8a1b690d9b8ca9701ba4b1f4d6d5} 
+QString {\bfseries get\+Branch} () const
+\item 
+\Hypertarget{classCommit_acf8869c92b424b4ebffde39f629ee714}\label{classCommit_acf8869c92b424b4ebffde39f629ee714} 
+qint64 {\bfseries get\+Timestamp} () const
+\item 
+\Hypertarget{classCommit_ab0fcb8d834a14c5617d9017eb1fdabbb}\label{classCommit_ab0fcb8d834a14c5617d9017eb1fdabbb} 
+const \mbox{\hyperlink{classTree}{Tree}} \& {\bfseries get\+Tree} () const
+\item 
+\Hypertarget{classCommit_aed4eef106c158f9120ed1a1312b8da29}\label{classCommit_aed4eef106c158f9120ed1a1312b8da29} 
+QJson\+Object {\bfseries to\+Json} () const
+\item 
+\Hypertarget{classCommit_a2ac830e84e346d25a9087c0c7ffcfd66}\label{classCommit_a2ac830e84e346d25a9087c0c7ffcfd66} 
+void {\bfseries set\+Hash} (const QString \&new\+Hash)
+\item 
+\Hypertarget{classCommit_a5bc3ec126881c4acfaa0f39e28d28b18}\label{classCommit_a5bc3ec126881c4acfaa0f39e28d28b18} 
+void {\bfseries set\+Timestamp} (qint64 new\+Timestamp)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCommit_a7ecf9cf8f1b91759fafa079a1fb21225}\label{classCommit_a7ecf9cf8f1b91759fafa079a1fb21225} 
+static \mbox{\hyperlink{classCommit}{Commit}} {\bfseries from\+Json} (const QJson\+Object \&json)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCommit_ad2a1547c5e123caf83a11d78e67abf18}\label{classCommit_ad2a1547c5e123caf83a11d78e67abf18} 
+QString {\bfseries generate\+Hash} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCommit_aab1ce7271056d5bce5fe5bd42fcadd45}\label{classCommit_aab1ce7271056d5bce5fe5bd42fcadd45} 
+\mbox{\hyperlink{classTree}{Tree}} {\bfseries tree}
+\item 
+\Hypertarget{classCommit_a1bc21b6732567f172557471e162aa2e4}\label{classCommit_a1bc21b6732567f172557471e162aa2e4} 
+QString {\bfseries hash}
+\item 
+\Hypertarget{classCommit_ae0ebcf73f2a4d9b1e5ef0a86cc658f3f}\label{classCommit_ae0ebcf73f2a4d9b1e5ef0a86cc658f3f} 
+QString {\bfseries author}
+\item 
+\Hypertarget{classCommit_a247366099166a0cdd683c1c5613f4a0e}\label{classCommit_a247366099166a0cdd683c1c5613f4a0e} 
+QString {\bfseries message}
+\item 
+\Hypertarget{classCommit_ad90962b259a61a063c34b218e5f56c32}\label{classCommit_ad90962b259a61a063c34b218e5f56c32} 
+QString {\bfseries parent\+Hash}
+\item 
+\Hypertarget{classCommit_af52f3f01ab99e1d8dc4744d7303d259f}\label{classCommit_af52f3f01ab99e1d8dc4744d7303d259f} 
+QString {\bfseries branch}
+\item 
+\Hypertarget{classCommit_a293265fe42bea9ade086fefd62273514}\label{classCommit_a293265fe42bea9ade086fefd62273514} 
+int {\bfseries timestamp}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+commit.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,212 @@
+\doxysection{Repository Class Reference}
+\hypertarget{classRepository}{}\label{classRepository}\index{Repository@{Repository}}
+
+
+Collaboration diagram for Repository\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classRepository__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRepository_a3d179113408b75b2a09ca9d4f2daa346}\label{classRepository_a3d179113408b75b2a09ca9d4f2daa346} 
+{\bfseries Repository} (const QString \&root\+Path)
+\item 
+\Hypertarget{classRepository_a323982aef13c9dd8e5463dab7e9d6f10}\label{classRepository_a323982aef13c9dd8e5463dab7e9d6f10} 
+void {\bfseries add\+Files\+To\+Tree} (\mbox{\hyperlink{classTree}{Tree}} \&tree, const QDir \&dir)
+\item 
+\Hypertarget{classRepository_a33d05ba30ab22a35c0232ea93cdcfc5e}\label{classRepository_a33d05ba30ab22a35c0232ea93cdcfc5e} 
+void {\bfseries save\+Commit\+Locally} (const \mbox{\hyperlink{classCommit}{Commit}} \&commit)
+\item 
+\Hypertarget{classRepository_a4e2f5d93d3512412572923658f586dd4}\label{classRepository_a4e2f5d93d3512412572923658f586dd4} 
+QString {\bfseries get\+Last\+Commit\+Hash} () const
+\item 
+\Hypertarget{classRepository_ade0e9423832c957b35250a5d14a7e477}\label{classRepository_ade0e9423832c957b35250a5d14a7e477} 
+QMap$<$ QString, QString $>$ {\bfseries load\+Commit\+Content} (const QString \&commit\+Hash) const
+\item 
+\Hypertarget{classRepository_ab7fcef553c4706ebd5559f7a89e75c1a}\label{classRepository_ab7fcef553c4706ebd5559f7a89e75c1a} 
+QString {\bfseries load\+Blob\+Content} (const QString \&blob\+Hash) const
+\item 
+\Hypertarget{classRepository_a60ab05be97da9c9e29af0132946b5960}\label{classRepository_a60ab05be97da9c9e29af0132946b5960} 
+\mbox{\hyperlink{classCommit}{Commit}} {\bfseries create\+Commit} (const QString \&author, const QString \&message)
+\item 
+\Hypertarget{classRepository_afc9216d5b97a89dc2fb1e1c7b821db4b}\label{classRepository_afc9216d5b97a89dc2fb1e1c7b821db4b} 
+bool {\bfseries send\+Commit\+To\+Server} (const \mbox{\hyperlink{classCommit}{Commit}} \&commit)
+\item 
+\Hypertarget{classRepository_a2f783fae47e137dd54daa1c889448d78}\label{classRepository_a2f783fae47e137dd54daa1c889448d78} 
+void {\bfseries create\+Branch} (const QString \&branch\+Name)
+\item 
+\Hypertarget{classRepository_a3784b12142a9d987555130e69d2329e6}\label{classRepository_a3784b12142a9d987555130e69d2329e6} 
+void {\bfseries switch\+Branch} (const QString \&branch\+Name)
+\item 
+\Hypertarget{classRepository_a366058eb46d89634ea14b8074bc8b10f}\label{classRepository_a366058eb46d89634ea14b8074bc8b10f} 
+QString {\bfseries get\+Current\+Branch} () const
+\item 
+\Hypertarget{classRepository_a8b97a7d44f565981d82b5127190dbdb6}\label{classRepository_a8b97a7d44f565981d82b5127190dbdb6} 
+QString\+List {\bfseries get\+Branches} () const
+\item 
+\Hypertarget{classRepository_a02f549088d63b4991c04eafc4e0efba4}\label{classRepository_a02f549088d63b4991c04eafc4e0efba4} 
+void {\bfseries restore\+To\+Commit} (const QString \&commit\+Hash)
+\item 
+\Hypertarget{classRepository_a8dad9a85da5aa67932b9dec11f97e78b}\label{classRepository_a8dad9a85da5aa67932b9dec11f97e78b} 
+QString {\bfseries get\+Repo\+Path} () const
+\item 
+\Hypertarget{classRepository_a9c3b47f13db1d36bc33e091c360d3342}\label{classRepository_a9c3b47f13db1d36bc33e091c360d3342} 
+QString {\bfseries get\+Second\+Last\+Commit\+Hash} () const
+\item 
+\Hypertarget{classRepository_a7cd865da76d65e57fc3383e9eea992ff}\label{classRepository_a7cd865da76d65e57fc3383e9eea992ff} 
+QString {\bfseries get\+Nth\+Last\+Commit\+For\+Branch} (const QString \&branch\+Name, int n) const
+\item 
+\Hypertarget{classRepository_a27c9f8218a7d1fa3de953225884d2c52}\label{classRepository_a27c9f8218a7d1fa3de953225884d2c52} 
+void {\bfseries clear\+Current\+Directory} ()
+\item 
+\Hypertarget{classRepository_abd737fd52923ff4c3c949719ae9f1655}\label{classRepository_abd737fd52923ff4c3c949719ae9f1655} 
+void {\bfseries add\+Tag} (const QString \&label, const QString \&commit\+Hash)
+\item 
+\Hypertarget{classRepository_a93b65182561d55bf627ee1abd236f192}\label{classRepository_a93b65182561d55bf627ee1abd236f192} 
+QString\+List {\bfseries get\+Tags} () const
+\item 
+\Hypertarget{classRepository_afa2c8e02bf158fcf0a3c8441dfb4864b}\label{classRepository_afa2c8e02bf158fcf0a3c8441dfb4864b} 
+void {\bfseries save\+Tags} ()
+\item 
+\Hypertarget{classRepository_a191de47dd8850cb1930a33421ef0edeb}\label{classRepository_a191de47dd8850cb1930a33421ef0edeb} 
+void {\bfseries load\+Tags} ()
+\item 
+\Hypertarget{classRepository_a27ef5c244f6d0832731eb11b0fba225a}\label{classRepository_a27ef5c244f6d0832731eb11b0fba225a} 
+bool {\bfseries tag\+Commit} (const QString \&commit\+Hash, const QString \&tag\+Name)
+\item 
+\Hypertarget{classRepository_a0f4603f70d3351560c0a9b4b1f40d080}\label{classRepository_a0f4603f70d3351560c0a9b4b1f40d080} 
+QString {\bfseries get\+Commit\+Hash\+For\+Tag} (const QString \&tag\+Name) const
+\item 
+\Hypertarget{classRepository_a4f3b70afb0f9a777d100a9d0f4e2be40}\label{classRepository_a4f3b70afb0f9a777d100a9d0f4e2be40} 
+QString {\bfseries get\+Commit\+Tag\+For\+Hash} (const QString \&commit\+Hash) const
+\item 
+\Hypertarget{classRepository_a0e4d4c4bf9c22ad31986436bb820a0db}\label{classRepository_a0e4d4c4bf9c22ad31986436bb820a0db} 
+QString {\bfseries get\+Commit\+Message} (const QString \&commit\+Hash) const
+\item 
+\Hypertarget{classRepository_a7835b7b0895c23e4e62b0ba6ada00d29}\label{classRepository_a7835b7b0895c23e4e62b0ba6ada00d29} 
+QString {\bfseries get\+Commit\+Author} (const QString \&commit\+Hash) const
+\item 
+\Hypertarget{classRepository_a58af42c357c94d18de94444d9191284b}\label{classRepository_a58af42c357c94d18de94444d9191284b} 
+QMap$<$ QString, QVector$<$ QString $>$ $>$ {\bfseries get\+Branch\+Commits} ()
+\item 
+\Hypertarget{classRepository_a68e8438967c7d7e5e254097df5a085f7}\label{classRepository_a68e8438967c7d7e5e254097df5a085f7} 
+QVector$<$ QString $>$ {\bfseries get\+Commits\+For\+Branch} (const QString \&branch\+Name) const
+\item 
+\Hypertarget{classRepository_a55feaf722ffb7f0baad0d8731d664e28}\label{classRepository_a55feaf722ffb7f0baad0d8731d664e28} 
+\mbox{\hyperlink{classCommit}{Commit}} {\bfseries load\+Commit} (const QString \&commit\+Hash)
+\item 
+\Hypertarget{classRepository_ab2f7eeca9275e9d7f4ab56a48581a886}\label{classRepository_ab2f7eeca9275e9d7f4ab56a48581a886} 
+\mbox{\hyperlink{classCommit}{Commit}} {\bfseries get\+Last\+Commit} () const
+\item 
+\Hypertarget{classRepository_abb317da59c1931a6c248cb15692f7dbc}\label{classRepository_abb317da59c1931a6c248cb15692f7dbc} 
+bool {\bfseries pull\+Repository\+From\+Server} (const QString \&repository\+Name)
+\item 
+\Hypertarget{classRepository_afc4d046131fb22cc966fd38ce9491cda}\label{classRepository_afc4d046131fb22cc966fd38ce9491cda} 
+QString\+List {\bfseries request\+Repository\+List} ()
+\item 
+\Hypertarget{classRepository_ab57ae0e5ef6db1ee2e637775c76a6100}\label{classRepository_ab57ae0e5ef6db1ee2e637775c76a6100} 
+void {\bfseries stash\+Changes} ()
+\item 
+\Hypertarget{classRepository_a0c72faa1035f6445e443d106c1a3ba47}\label{classRepository_a0c72faa1035f6445e443d106c1a3ba47} 
+void {\bfseries apply\+Stash} ()
+\item 
+\Hypertarget{classRepository_aa6887c1c6ff1ed9ae9bfcd2b34ad17a5}\label{classRepository_aa6887c1c6ff1ed9ae9bfcd2b34ad17a5} 
+void {\bfseries discard\+Stash} ()
+\item 
+\Hypertarget{classRepository_a3242b1f3d2eae742002f5607cde5ad4b}\label{classRepository_a3242b1f3d2eae742002f5607cde5ad4b} 
+bool {\bfseries has\+Stash} () const
+\item 
+\Hypertarget{classRepository_a3d7f2842c1e2cb166ee79205cb6e74dc}\label{classRepository_a3d7f2842c1e2cb166ee79205cb6e74dc} 
+bool {\bfseries merge\+Branches} (const QString \&source\+Branch, const QString \&target\+Brach)
+\item 
+\Hypertarget{classRepository_a9c1039b01938e63b4d0e9242cd3b68a2}\label{classRepository_a9c1039b01938e63b4d0e9242cd3b68a2} 
+bool {\bfseries send\+Commit\+Data\+To\+Server} (const QString \&commit\+Hash)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRepository_afe60a082640c7551f1b9245175c3334f}\label{classRepository_afe60a082640c7551f1b9245175c3334f} 
+\mbox{\hyperlink{classTree}{Tree}} {\bfseries load\+Commit\+Tree} (const QString \&commit\+Hash)
+\item 
+\Hypertarget{classRepository_a3783d21c3c12086fd7e36524aa8a4f9b}\label{classRepository_a3783d21c3c12086fd7e36524aa8a4f9b} 
+bool {\bfseries merge\+Trees} (\mbox{\hyperlink{classTree}{Tree}} \&source\+Tree, \mbox{\hyperlink{classTree}{Tree}} \&target\+Tree, const QString \&current\+Path)
+\item 
+\Hypertarget{classRepository_a192ece186b7e8cb94345be79ac220826}\label{classRepository_a192ece186b7e8cb94345be79ac220826} 
+bool {\bfseries save\+Merged\+Content} (const QString \&file\+Path, const QString \&content)
+\item 
+\Hypertarget{classRepository_a8b212c85c3f3b93b298ada10db1a2420}\label{classRepository_a8b212c85c3f3b93b298ada10db1a2420} 
+void {\bfseries save\+Branch\+Info} () const
+\item 
+\Hypertarget{classRepository_aeaaf3f3747a270e5ecc816898cbe26db}\label{classRepository_aeaaf3f3747a270e5ecc816898cbe26db} 
+void {\bfseries load\+Branch\+Info} ()
+\item 
+\Hypertarget{classRepository_a46a542cdfd22e077a45587e3b60ea927}\label{classRepository_a46a542cdfd22e077a45587e3b60ea927} 
+QString {\bfseries resolve\+Conflict} (const QString \&source\+Content, const QString \&target\+Content)
+\item 
+\Hypertarget{classRepository_a3b0f4bfb07a9d66c215e25f1fd5dda07}\label{classRepository_a3b0f4bfb07a9d66c215e25f1fd5dda07} 
+void {\bfseries save\+Stash\+Info} (const QString \&commit\+Hash)
+\item 
+\Hypertarget{classRepository_a55102abb8918b12379bd809f587dd940}\label{classRepository_a55102abb8918b12379bd809f587dd940} 
+QString {\bfseries load\+Stash\+Info} () const
+\item 
+\Hypertarget{classRepository_a1d36a8957c2289206a08efe57118807d}\label{classRepository_a1d36a8957c2289206a08efe57118807d} 
+void {\bfseries restore\+Tree} (const QJson\+Object \&tree\+Obj, const QString \&current\+Path)
+\item 
+\Hypertarget{classRepository_a69ccce78a0cf55e709410a91a61e15f4}\label{classRepository_a69ccce78a0cf55e709410a91a61e15f4} 
+void {\bfseries restore\+Tree} (const \mbox{\hyperlink{classTree}{Tree}} \&tree, const QString \&current\+Path)
+\item 
+\Hypertarget{classRepository_a99ba59f2fcb03a7aa953ebd4c2eb4749}\label{classRepository_a99ba59f2fcb03a7aa953ebd4c2eb4749} 
+void {\bfseries load\+Tree\+Content} (const QString \&tree\+Hash, const QString \&current\+Path, QMap$<$ QString, QString $>$ \&content\+Map) const
+\item 
+\Hypertarget{classRepository_a68582c680c3dc21fee5e04d2d0ae9d4a}\label{classRepository_a68582c680c3dc21fee5e04d2d0ae9d4a} 
+\mbox{\hyperlink{classBlob}{Blob}} {\bfseries merge\+Blobs} (const \mbox{\hyperlink{classBlob}{Blob}} \&target\+Blob, const \mbox{\hyperlink{classBlob}{Blob}} \&source\+Blob)
+\item 
+\Hypertarget{classRepository_ab9790f7d9db24b2defe0bea91b50b2f9}\label{classRepository_ab9790f7d9db24b2defe0bea91b50b2f9} 
+bool {\bfseries merge\+Directories} (const QMap$<$ QString, QString $>$ \&source\+Files, const QMap$<$ QString, QString $>$ \&target\+Files, const QString \&current\+Path)
+\item 
+\Hypertarget{classRepository_a2ad2ae8849618d29ae87e1655c302c45}\label{classRepository_a2ad2ae8849618d29ae87e1655c302c45} 
+bool {\bfseries send\+Tree\+To\+Server} (const \mbox{\hyperlink{classTree}{Tree}} \&tree)
+\item 
+\Hypertarget{classRepository_a7b1d3e0e55776625922659b70991a0a0}\label{classRepository_a7b1d3e0e55776625922659b70991a0a0} 
+bool {\bfseries send\+Blob} (const QString \&blob\+Hash, const QString \&current\+Path)
+\item 
+\Hypertarget{classRepository_a482418fffc58bb2863ec840ebe155304}\label{classRepository_a482418fffc58bb2863ec840ebe155304} 
+bool {\bfseries send\+Tree\+And\+Blobs} (const QString \&tree\+Hash, const QString \&current\+Path)
+\item 
+\Hypertarget{classRepository_ab54a8080e796e5c6ff5bd954b3d2802f}\label{classRepository_ab54a8080e796e5c6ff5bd954b3d2802f} 
+QString\+List {\bfseries collect\+Tree\+Hashes} (const QString \&root\+Tree\+Hash)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRepository_a8bca29f5aa5f495f3ffbb7897ae502fb}\label{classRepository_a8bca29f5aa5f495f3ffbb7897ae502fb} 
+QString {\bfseries root\+Path}
+\item 
+\Hypertarget{classRepository_a85c5bce5c53460050801b9f6d3dc71a8}\label{classRepository_a85c5bce5c53460050801b9f6d3dc71a8} 
+QString {\bfseries current\+Branch}
+\item 
+\Hypertarget{classRepository_a7d2e2797cdc5769a9cc78be02927e64a}\label{classRepository_a7d2e2797cdc5769a9cc78be02927e64a} 
+QString\+List {\bfseries branches}
+\item 
+\Hypertarget{classRepository_a7d05212e5577b2eb2d27cf23aaf43335}\label{classRepository_a7d05212e5577b2eb2d27cf23aaf43335} 
+QString {\bfseries stash\+File\+Path}
+\item 
+\Hypertarget{classRepository_a00a42369faa7f3ff4dbd8994063e58ef}\label{classRepository_a00a42369faa7f3ff4dbd8994063e58ef} 
+QList$<$ \mbox{\hyperlink{classTag}{Tag}} $>$ {\bfseries tags}
+\item 
+\Hypertarget{classRepository_a9d552577b6ef53dd84a922972a6360d0}\label{classRepository_a9d552577b6ef53dd84a922972a6360d0} 
+QString {\bfseries tags\+File\+Path}
+\item 
+\Hypertarget{classRepository_aee4b196c68f0b493b2d6ae1b4ccb4732}\label{classRepository_aee4b196c68f0b493b2d6ae1b4ccb4732} 
+\mbox{\hyperlink{classCommit}{Commit}} {\bfseries last\+Commit}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+repository.\+hpp\item 
+repository.\+cpp\end{DoxyCompactItemize}

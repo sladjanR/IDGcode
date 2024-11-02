@@ -1,0 +1,98 @@
+\doxysection{blob.\+hpp}
+\hypertarget{blob_8hpp_source}{}\label{blob_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BLOB\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BLOB\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Qt}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QFile>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QDir>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QByteArray>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QCryptographicHash>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Staro}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBlob}{Blob}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ QByteArray\ content;}
+\DoxyCodeLine{00016\ \ \ \ \ QString\ hash;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classBlob}{Blob}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ Konstruktor\ sa\ argumentima\ koji\ cuva\ blob\ na\ disku}}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classBlob}{Blob}}(\textcolor{keyword}{const}\ QString\&\ filePath,\ \textcolor{keyword}{const}\ QString\&\ rootPath)}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ QFile\ file(filePath);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file.open(QIODevice::ReadOnly))}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ QByteArray\ fileContent\ =\ file.readAll();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ content\ =\ fileContent;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ hash\ =\ generateHash(content);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Na\ kraju\ cuvamo\ napravljeni\ blob\ u\ memoriju}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ saveToDisk(rootPath);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classBlob}{Blob}}\ fromDisk(\textcolor{keyword}{const}\ QString\&\ blobHash,\ \textcolor{keyword}{const}\ QString\&\ rootPath)}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ QString\ blobFilePath\ =\ rootPath\ +\ \textcolor{stringliteral}{"{}/.blobs/blob\_"{}}\ +\ blobHash\ +\ \textcolor{stringliteral}{"{}.txt"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ QFile\ blobFile(blobFilePath);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBlob}{Blob}}\ blob;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (blobFile.open(QIODevice::ReadOnly))}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ blob.content\ =\ blobFile.readAll();}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ blob.hash\ =\ blobHash;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ blobFile.close();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ blob;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ QString\ getHash()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00050\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hash;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ QByteArray\ getContent()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ content;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Metoda\ koja\ generise\ hash\ na\ osnovu\ kontenta\ (od\ bytearray-\/a)}}
+\DoxyCodeLine{00060\ \ \ \ \ QString\ generateHash(\textcolor{keyword}{const}\ QByteArray\&\ data)}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ QByteArray\ hashData\ =\ QCryptographicHash::hash(data,\ QCryptographicHash::Sha1);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hashData.toHex();}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Metoda\ za\ cuvanje\ bloba}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ saveToDisk(\textcolor{keyword}{const}\ QString\&\ rootPath)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00068\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Proveravamo\ prvo\ da\ li\ direktorijum\ postoji}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ QString\ blobDir\ =\ rootPath\ +\ \textcolor{stringliteral}{"{}/.blobs"{}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!QDir(blobDir).exists())}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ QDir().mkpath(blobDir);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Definisemo\ putanju\ do\ naseg\ blob-\/a\ (do\ fajla)}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ QString\ blobFilePath\ =\ blobDir\ +\ \textcolor{stringliteral}{"{}/blob\_"{}}\ +\ hash\ +\ \textcolor{stringliteral}{"{}.txt"{}};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Upisujemo\ sadrzaj\ u\ blob}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ QFile\ blobFile(blobFilePath);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (blobFile.open(QIODevice::WriteOnly))}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ blobFile.write(content);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ blobFile.close();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BLOB\_H}}
+
+\end{DoxyCode}

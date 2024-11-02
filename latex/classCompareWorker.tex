@@ -1,0 +1,67 @@
+\doxysection{Compare\+Worker Class Reference}
+\hypertarget{classCompareWorker}{}\label{classCompareWorker}\index{CompareWorker@{CompareWorker}}
+
+
+Inheritance diagram for Compare\+Worker\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classCompareWorker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Compare\+Worker\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classCompareWorker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCompareWorker_a26dfc06f198df3157839f8ee5aefb7de}\label{classCompareWorker_a26dfc06f198df3157839f8ee5aefb7de} 
+void {\bfseries process} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCompareWorker_a688743e7155ca789dc15f843f91f3ebc}\label{classCompareWorker_a688743e7155ca789dc15f843f91f3ebc} 
+void {\bfseries finished} ()
+\item 
+\Hypertarget{classCompareWorker_a25494ebe5b42d6ac33bed8c0a722e503}\label{classCompareWorker_a25494ebe5b42d6ac33bed8c0a722e503} 
+void {\bfseries display\+Diff} (const QString \&file\+Name, const QString \&old\+Content, const QString \&new\+Content)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCompareWorker_a249303f9efba62d4c88a4baaaa2074fb}\label{classCompareWorker_a249303f9efba62d4c88a4baaaa2074fb} 
+{\bfseries Compare\+Worker} (\mbox{\hyperlink{classRepository}{Repository}} \texorpdfstring{$\ast$}{*}repo, const QString \&last\+Commit\+Hash, const QString \&second\+Last\+Commit\+Hash)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCompareWorker_a9ccc5cea6d47f385ff19665dd716cd60}\label{classCompareWorker_a9ccc5cea6d47f385ff19665dd716cd60} 
+\mbox{\hyperlink{classTree}{Tree}} {\bfseries load\+Commit\+Tree} (const QString \&commit\+Hash)
+\item 
+\Hypertarget{classCompareWorker_a94eccf9c9fec8be7c02d661a8bcae196}\label{classCompareWorker_a94eccf9c9fec8be7c02d661a8bcae196} 
+void {\bfseries compare\+Trees} (const \mbox{\hyperlink{classTree}{Tree}} \&tree1, const \mbox{\hyperlink{classTree}{Tree}} \&tree2, const QString \&current\+Path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCompareWorker_a3abcea95afeebee505478b1250babca3}\label{classCompareWorker_a3abcea95afeebee505478b1250babca3} 
+\mbox{\hyperlink{classRepository}{Repository}} \texorpdfstring{$\ast$}{*} {\bfseries repository}
+\item 
+\Hypertarget{classCompareWorker_a230fa8d24a6dca1d4f6899f98996e5bc}\label{classCompareWorker_a230fa8d24a6dca1d4f6899f98996e5bc} 
+QString {\bfseries last\+Commit\+Hash}
+\item 
+\Hypertarget{classCompareWorker_a4cc88bde873e38550b6bb9647fc90f40}\label{classCompareWorker_a4cc88bde873e38550b6bb9647fc90f40} 
+QString {\bfseries second\+Last\+Commit\+Hash}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+compareworker.\+hpp\end{DoxyCompactItemize}

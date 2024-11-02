@@ -1,0 +1,67 @@
+\doxysection{Tree Class Reference}
+\hypertarget{classTree}{}\label{classTree}\index{Tree@{Tree}}
+
+
+Collaboration diagram for Tree\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classTree__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTree_aaaa34ed8c6395b1e2b749b20ed2c764c}\label{classTree_aaaa34ed8c6395b1e2b749b20ed2c764c} 
+void {\bfseries add\+Blob} (const QString \&name, const \mbox{\hyperlink{classBlob}{Blob}} \&blob)
+\item 
+\Hypertarget{classTree_a95cafe1c0f0667830469cfa1b2a76096}\label{classTree_a95cafe1c0f0667830469cfa1b2a76096} 
+void {\bfseries add\+Tree} (const QString \&name, const \mbox{\hyperlink{classTree}{Tree}} \&tree)
+\item 
+\Hypertarget{classTree_a2985bc94863285ea9239e15e5eb1a770}\label{classTree_a2985bc94863285ea9239e15e5eb1a770} 
+QString {\bfseries get\+Hash} () const
+\item 
+\Hypertarget{classTree_a73a13913cc28d9dd93b06c0f1045e5a0}\label{classTree_a73a13913cc28d9dd93b06c0f1045e5a0} 
+QMap$<$ QString, QString $>$ {\bfseries get\+Blobs} () const
+\item 
+\Hypertarget{classTree_a10a1e8d9bfbc4a47e37387472e4442c8}\label{classTree_a10a1e8d9bfbc4a47e37387472e4442c8} 
+QMap$<$ QString, QString $>$ {\bfseries get\+Trees} () const
+\item 
+\Hypertarget{classTree_ae2aa26fa1839616e4d7732ff01a0cc90}\label{classTree_ae2aa26fa1839616e4d7732ff01a0cc90} 
+QJson\+Object {\bfseries to\+Json} () const
+\item 
+\Hypertarget{classTree_a05f6c0508cad663bd3ccf5e1e356f76a}\label{classTree_a05f6c0508cad663bd3ccf5e1e356f76a} 
+bool {\bfseries save\+To\+Disk} (const QString \&root\+Path) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTree_a8a3fb950881b6bf88fd57c145cc329df}\label{classTree_a8a3fb950881b6bf88fd57c145cc329df} 
+static \mbox{\hyperlink{classTree}{Tree}} {\bfseries from\+Json} (const QJson\+Object \&json)
+\item 
+\Hypertarget{classTree_a11cd1c045dc5c5fd1a5abf4c34d17da3}\label{classTree_a11cd1c045dc5c5fd1a5abf4c34d17da3} 
+static \mbox{\hyperlink{classTree}{Tree}} {\bfseries from\+Disk} (const QString \&tree\+Hash, const QString \&root\+Path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTree_a252787e5c9787071e0b36a37bb1fd88a}\label{classTree_a252787e5c9787071e0b36a37bb1fd88a} 
+QString {\bfseries generate\+Hash} (const QByte\+Array \&data) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTree_a6436051795f7c3bae6afd102fe6202fa}\label{classTree_a6436051795f7c3bae6afd102fe6202fa} 
+QMap$<$ QString, QString $>$ {\bfseries blobs}
+\item 
+\Hypertarget{classTree_a2ce0116823c87a63b87d1a1c1a4da05a}\label{classTree_a2ce0116823c87a63b87d1a1c1a4da05a} 
+QMap$<$ QString, QString $>$ {\bfseries trees}
+\item 
+\Hypertarget{classTree_a85ba590634913a5a7b3e639ea6cf0ce1}\label{classTree_a85ba590634913a5a7b3e639ea6cf0ce1} 
+QString {\bfseries hash}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+tree.\+hpp\end{DoxyCompactItemize}

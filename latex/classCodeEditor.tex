@@ -1,0 +1,92 @@
+\doxysection{Code\+Editor Class Reference}
+\hypertarget{classCodeEditor}{}\label{classCodeEditor}\index{CodeEditor@{CodeEditor}}
+
+
+Inheritance diagram for Code\+Editor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classCodeEditor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Code\+Editor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classCodeEditor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCodeEditor_a8df408b02ecfb141ca525110c8916b13}\label{classCodeEditor_a8df408b02ecfb141ca525110c8916b13} 
+{\bfseries Code\+Editor} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+\Hypertarget{classCodeEditor_a489c42fbd3ede6b7259f306accd34c59}\label{classCodeEditor_a489c42fbd3ede6b7259f306accd34c59} 
+void {\bfseries change\+Theme} (const QString \&theme)
+\item 
+\Hypertarget{classCodeEditor_aafe315e86e57fabfd77ebd3d3281629e}\label{classCodeEditor_aafe315e86e57fabfd77ebd3d3281629e} 
+void {\bfseries set\+Syntax\+Highlighting} (QSyntax\+Highlighter \texorpdfstring{$\ast$}{*}highlighter)
+\item 
+\Hypertarget{classCodeEditor_a96e24088faa784a4ec419a647fcab5dd}\label{classCodeEditor_a96e24088faa784a4ec419a647fcab5dd} 
+void {\bfseries line\+Number\+Area\+Paint\+Event} (QPaint\+Event \texorpdfstring{$\ast$}{*}event)
+\item 
+\Hypertarget{classCodeEditor_af7c3fbf0af03c4ff136e0298a336dd88}\label{classCodeEditor_af7c3fbf0af03c4ff136e0298a336dd88} 
+int {\bfseries line\+Number\+Area\+Width} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCodeEditor_a309279c4057e596e6b31f9f9b64834f0}\label{classCodeEditor_a309279c4057e596e6b31f9f9b64834f0} 
+void {\bfseries key\+Press\+Event} (QKey\+Event \texorpdfstring{$\ast$}{*}event) override
+\item 
+\Hypertarget{classCodeEditor_ac8368e6e103979e763bcd446b56a93b0}\label{classCodeEditor_ac8368e6e103979e763bcd446b56a93b0} 
+void {\bfseries resize\+Event} (QResize\+Event \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCodeEditor_a28c8e8d686d9bacfb1bff04783b39924}\label{classCodeEditor_a28c8e8d686d9bacfb1bff04783b39924} 
+void {\bfseries update\+Line\+Number\+Area\+Width} (int new\+Block\+Count)
+\item 
+\Hypertarget{classCodeEditor_a8d0bbb48f1f7ad273dba6e31f0b5f28b}\label{classCodeEditor_a8d0bbb48f1f7ad273dba6e31f0b5f28b} 
+void {\bfseries highlight\+Current\+Line} ()
+\item 
+\Hypertarget{classCodeEditor_a697259986621f041eb12a24d0009f128}\label{classCodeEditor_a697259986621f041eb12a24d0009f128} 
+void {\bfseries update\+Line\+Number\+Area} (const QRect \&rect, int dy)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCodeEditor_a3d061c5f7399a4389d1a7b6b3f7c9361}\label{classCodeEditor_a3d061c5f7399a4389d1a7b6b3f7c9361} 
+void {\bfseries insert\+Matched\+Character} (QChar open\+Char, QChar close\+Char)
+\item 
+\Hypertarget{classCodeEditor_ae596157a8513dcb61a9eda8fd567e31c}\label{classCodeEditor_ae596157a8513dcb61a9eda8fd567e31c} 
+void {\bfseries handle\+Auto\+Indentation} ()
+\item 
+\Hypertarget{classCodeEditor_adfb38bafba1a0ccd660f6c05398eb974}\label{classCodeEditor_adfb38bafba1a0ccd660f6c05398eb974} 
+void {\bfseries zoom\+In\+Text} ()
+\item 
+\Hypertarget{classCodeEditor_aac0ed454ab4caea29ae58a52e141e31b}\label{classCodeEditor_aac0ed454ab4caea29ae58a52e141e31b} 
+void {\bfseries zoom\+Out\+Text} ()
+\item 
+\Hypertarget{classCodeEditor_a651621ba40aaf025c71b2403ccb25790}\label{classCodeEditor_a651621ba40aaf025c71b2403ccb25790} 
+void {\bfseries reset\+Zoom} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCodeEditor_ae45f74dc4d957e84c4df9282d57be797}\label{classCodeEditor_ae45f74dc4d957e84c4df9282d57be797} 
+QSyntax\+Highlighter \texorpdfstring{$\ast$}{*} {\bfseries highlighter}
+\item 
+\Hypertarget{classCodeEditor_a9132cd18e435117ad928b18d9903162d}\label{classCodeEditor_a9132cd18e435117ad928b18d9903162d} 
+QWidget \texorpdfstring{$\ast$}{*} {\bfseries line\+Number\+Area}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+codeeditor.\+hpp\item 
+codeeditor.\+cpp\end{DoxyCompactItemize}

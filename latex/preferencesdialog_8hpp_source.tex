@@ -1,0 +1,33 @@
+\doxysection{preferencesdialog.\+hpp}
+\hypertarget{preferencesdialog_8hpp_source}{}\label{preferencesdialog_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PREFERENCESDIALOG\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PREFERENCESDIALOG\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Qt}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QTabWidget>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPreferencesDialog}{PreferencesDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ QTabWidget\ *tabWidget;}
+\DoxyCodeLine{00014\ \ \ \ \ QPushButton\ *okButton;}
+\DoxyCodeLine{00015\ \ \ \ \ QPushButton\ *cancelButton;}
+\DoxyCodeLine{00016\ \ \ \ \ QPushButton\ *applyButton;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classPreferencesDialog}{PreferencesDialog}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ setupUI();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ setupGeneralTab();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ setupAppearanceTab();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ setupShortcutTab();}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PREFERENCESDIALOG\_HPP}}
+
+\end{DoxyCode}

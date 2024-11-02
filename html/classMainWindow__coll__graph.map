@@ -1,0 +1,19 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="Node000001" title=" " alt="" coords="217,1600,441,2437"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,1189,103,1259"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,1273,82,1394,97,1465,117,1535,164,1667,219,1794,214,1796,159,1669,111,1537,92,1466,77,1394,57,1274"/>
+<area shape="rect" id="Node000003" href="$classCodeEditor.html" title=" " alt="" coords="127,1029,328,1419"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,1418,276,1583,270,1583,249,1419"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="177,576,277,645"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="230,660,230,1029,225,1029,225,660"/>
+<area shape="rect" id="Node000005" href="$classRepository.html" title=" " alt="" coords="353,912,510,1536"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="394,1536,388,1583,382,1582,388,1535"/>
+<area shape="rect" id="Node000006" href="$classCommit.html" title=" " alt="" coords="372,373,491,848"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="434,848,434,895,429,895,429,848"/>
+<area shape="rect" id="Node000007" href="$classTree.html" title=" " alt="" coords="375,5,487,309"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="434,309,434,356,429,356,429,309"/>
+<area shape="rect" id="Node000008" href="$classFindMe.html" title=" " alt="" coords="534,1147,649,1301"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="581,1301,557,1413,525,1537,489,1642,450,1746,445,1744,484,1640,519,1535,552,1412,575,1300"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="561,576,621,645"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="594,660,594,1147,589,1147,589,660"/>
+</map>

@@ -1,0 +1,98 @@
+\doxysection{commit.\+hpp}
+\hypertarget{commit_8hpp_source}{}\label{commit_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COMMIT\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COMMIT\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}tree.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Qt}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QDateTime>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QCryptographicHash>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Stari\ proveren}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCommit}{Commit}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classTree}{Tree}}\ tree;}
+\DoxyCodeLine{00016\ \ \ \ \ QString\ hash;}
+\DoxyCodeLine{00017\ \ \ \ \ QString\ author;}
+\DoxyCodeLine{00018\ \ \ \ \ QString\ message;}
+\DoxyCodeLine{00019\ \ \ \ \ QString\ parentHash;}
+\DoxyCodeLine{00020\ \ \ \ \ QString\ branch;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ timestamp;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classCommit}{Commit}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classCommit}{Commit}}(\textcolor{keyword}{const}\ QString\&\ message,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTree}{Tree}}\&\ projectTree,\ \textcolor{keyword}{const}\ QString\&\ author,\ \textcolor{keyword}{const}\ QString\&\ parentHash,\ \textcolor{keyword}{const}\ QString\&\ branch)\ :}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ message(message),}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ tree(projectTree),}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ author(author),}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ parentHash(parentHash),}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ branch(branch)}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ timestamp\ =\ QDateTime::currentMSecsSinceEpoch();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ hash\ =\ generateHash();}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ QString\ getTreeHash()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ tree.getHash();\}}
+\DoxyCodeLine{00036\ \ \ \ \ QString\ getHash()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ hash;\}}
+\DoxyCodeLine{00037\ \ \ \ \ QString\ getAuthor()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ author;\}}
+\DoxyCodeLine{00038\ \ \ \ \ QString\ getMessage()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ message;\}}
+\DoxyCodeLine{00039\ \ \ \ \ QString\ getParentHash()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ parentHash;\ \}}
+\DoxyCodeLine{00040\ \ \ \ \ QString\ getBranch()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ branch;\ \}}
+\DoxyCodeLine{00041\ \ \ \ \ qint64\ getTimestamp()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ timestamp;\}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTree}{Tree}}\&\ getTree()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ tree;\ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ QJsonObject\ toJson()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00046\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ QJsonObject\ json;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}commitHash"{}}]\ =\ hash;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}treeHash"{}}]\ =\ tree.getHash();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}author"{}}]\ =\ author;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}message"{}}]\ =\ message;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}parentHash"{}}]\ =\ parentHash;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}branch"{}}]\ =\ branch;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}timestamp"{}}]\ =\ QString::number(timestamp);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ NEMOJ\ DA\ ZABORAVIS\ I\ TREE\ da\ ubacis\ u\ commit,\ mozda\ nije\ u\ json\ ali\ mora\ i\ to\ ako\ nisi\ (preko\ konstruktora\ \ \ )}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ json;}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCommit}{Commit}}\ fromJson(\textcolor{keyword}{const}\ QJsonObject\&\ json)}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTree}{Tree}}\ tree\ =\ Tree::fromJson(json[\textcolor{stringliteral}{"{}tree"{}}].toObject());}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ QString\ message\ =\ json[\textcolor{stringliteral}{"{}message"{}}].toString();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ QString\ author\ =\ json[\textcolor{stringliteral}{"{}author"{}}].toString();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ QString\ parentHash\ =\ json[\textcolor{stringliteral}{"{}parentHash"{}}].toString();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ QString\ branch\ =\ json[\textcolor{stringliteral}{"{}branch"{}}].toString();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCommit}{Commit}}\ commit(message,\ tree,\ author,\ parentHash,\ branch);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ commit.hash\ =\ json[\textcolor{stringliteral}{"{}commitHash"{}}].toString();}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ commit.timestamp\ =\ json[\textcolor{stringliteral}{"{}timestamp"{}}].toString().toLongLong();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ commit;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ setHash(\textcolor{keyword}{const}\ QString\&\ newHash)\ \{\ hash\ =\ newHash;\}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ setTimestamp(qint64\ newTimestamp)\ \{\ timestamp\ =\ newTimestamp;\}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00079\ \ \ \ \ QString\ generateHash()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00080\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ QByteArray\ data;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ data.append(tree.getHash().toUtf8());}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ data.append(parentHash.toUtf8());}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ data.append(author.toUtf8());}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ data.append(message.toUtf8());}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ data.append(branch.toUtf8());}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ data.append(QString::number(timestamp).toUtf8());}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ QString(QCryptographicHash::hash(data,\ QCryptographicHash::Sha1).toHex());}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ COMMIT\_HPP}}
+
+\end{DoxyCode}

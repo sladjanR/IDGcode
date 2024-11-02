@@ -1,0 +1,9 @@
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/IDGcode.dir
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/edit_cache.dir
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/rebuild_cache.dir
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/list_install_components.dir
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install.dir
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install/local.dir
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install/strip.dir
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/IDGcode_autogen_timestamp_deps.dir
+/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/IDGcode_autogen.dir

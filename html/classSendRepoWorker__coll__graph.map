@@ -1,0 +1,12 @@
+<map id="SendRepoWorker" name="SendRepoWorker">
+<area shape="rect" id="Node000001" title=" " alt="" coords="48,1600,181,1691"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,1189,67,1259"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="45,1273,62,1393,88,1535,104,1599,99,1601,83,1537,57,1394,39,1274"/>
+<area shape="rect" id="Node000003" href="$classRepository.html" title=" " alt="" coords="189,912,347,1536"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,1489,173,1537,150,1586,145,1584,168,1535,187,1487"/>
+<area shape="rect" id="Node000004" href="$classCommit.html" title=" " alt="" coords="77,373,195,848"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="131,848,129,912,118,1583,113,1583,124,912,125,848"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="190,847,200,895,195,896,184,848"/>
+<area shape="rect" id="Node000005" href="$classTree.html" title=" " alt="" coords="80,5,192,309"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="139,309,139,356,133,356,133,309"/>
+</map>

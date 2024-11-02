@@ -1,0 +1,49 @@
+\doxysection{Blob Class Reference}
+\hypertarget{classBlob}{}\label{classBlob}\index{Blob@{Blob}}
+
+
+Collaboration diagram for Blob\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classBlob__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBlob_ad6f839c478ce8a7954731be94299f6f7}\label{classBlob_ad6f839c478ce8a7954731be94299f6f7} 
+{\bfseries Blob} (const QString \&file\+Path, const QString \&root\+Path)
+\item 
+\Hypertarget{classBlob_ae2bb5860a90eee4b56b1b614e9407a91}\label{classBlob_ae2bb5860a90eee4b56b1b614e9407a91} 
+QString {\bfseries get\+Hash} () const
+\item 
+\Hypertarget{classBlob_a404e12a09788546cf86b6d977cbb02d0}\label{classBlob_a404e12a09788546cf86b6d977cbb02d0} 
+QByte\+Array {\bfseries get\+Content} () const
+\item 
+\Hypertarget{classBlob_a18b693ce1ff85afb39cb32cb2ed95acc}\label{classBlob_a18b693ce1ff85afb39cb32cb2ed95acc} 
+QString {\bfseries generate\+Hash} (const QByte\+Array \&data)
+\item 
+\Hypertarget{classBlob_a01e773c6cfe00e3aef1c29d1b1902f43}\label{classBlob_a01e773c6cfe00e3aef1c29d1b1902f43} 
+bool {\bfseries save\+To\+Disk} (const QString \&root\+Path) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBlob_a56e8887903c5028668c3bdc1c6587408}\label{classBlob_a56e8887903c5028668c3bdc1c6587408} 
+static \mbox{\hyperlink{classBlob}{Blob}} {\bfseries from\+Disk} (const QString \&blob\+Hash, const QString \&root\+Path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBlob_afdde973f8a97fa86601e3e9acf1016e2}\label{classBlob_afdde973f8a97fa86601e3e9acf1016e2} 
+QByte\+Array {\bfseries content}
+\item 
+\Hypertarget{classBlob_a65472ffad430ef606fefc5fda7ce1281}\label{classBlob_a65472ffad430ef606fefc5fda7ce1281} 
+QString {\bfseries hash}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+blob.\+hpp\end{DoxyCompactItemize}

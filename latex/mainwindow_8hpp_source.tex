@@ -1,0 +1,112 @@
+\doxysection{mainwindow.\+hpp}
+\hypertarget{mainwindow_8hpp_source}{}\label{mainwindow_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAINWINDOW\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAINWINDOW\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsScene>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QListView>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QStandardItemModel>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Forward\ deklaracija}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCodeEditor}{CodeEditor}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }QTreeView;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }QFileSystemModel;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRepository}{Repository}};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFindMe}{FindMe}};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCompareWorker}{CompareWorker}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMainWindow}{MainWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classCodeEditor}{CodeEditor}}\ *codeEditor;}
+\DoxyCodeLine{00023\ \ \ \ \ QDockWidget\ *fileExplorerDock;}
+\DoxyCodeLine{00024\ \ \ \ \ QTreeView\ *treeView;}
+\DoxyCodeLine{00025\ \ \ \ \ QDockWidget\ *commitHistoryDock;}
+\DoxyCodeLine{00026\ \ \ \ \ QFileSystemModel\ *fileModel;}
+\DoxyCodeLine{00027\ \ \ \ \ QString\ currentFilePath;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ savedFile;}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classRepository}{Repository}}\ *repo;}
+\DoxyCodeLine{00030\ \ \ \ \ QStandardItemModel*\ commitModel;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ QDockWidget*\ commitHistoryDockWidget;}
+\DoxyCodeLine{00033\ \ \ \ \ QListView*\ commitHistoryView;}
+\DoxyCodeLine{00034\ \ \ \ \ QWidget*\ commitDetailsWidget;}
+\DoxyCodeLine{00035\ \ \ \ \ QVBoxLayout*\ commitDetailsLayout;}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classFindMe}{FindMe}}*\ findTextDialog;}
+\DoxyCodeLine{00037\ \ \ \ \ QToolBar*\ toolBar;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ QGraphicsView\ *branchGraphView;}
+\DoxyCodeLine{00040\ \ \ \ \ QGraphicsScene\ *branchGraphScene;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classMainWindow}{MainWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ closeEvent(QCloseEvent\ *event);}
+\DoxyCodeLine{00048\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ changeTheme(\textcolor{keyword}{const}\ QString\ \&theme);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ saveFile();}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ newProject();}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ openProject();}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ void\ openFile();}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ newFile();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ treeViewClicked(\textcolor{keyword}{const}\ QModelIndex\ \&index);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ commitChanges();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ onTreeViewContextMenu(\textcolor{keyword}{const}\ QPoint\ \&point);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ onAddNewFolder();}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ onCommitClicked(\textcolor{keyword}{const}\ QModelIndex\ \&index);}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ newFolder();}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ stashChanges();}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ applyStash();}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ discardStash();}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ onExit();}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ showFindMe();}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ findText(\textcolor{keyword}{const}\ QString\ \&text);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ pushDataToServer();}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ pullDataFromServer();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ createBranch();}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ switchBranch();}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ tagCommit();}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ viewTags();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ restoreToPreviousCommit();}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ mergeBranch();}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ compareCommits();}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ showAboutDialog();}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ showContactDialog();}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ showPreferencesDialog();}
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ createDockWidget();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ createMenubar();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ createToolBar();}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ createStatusBar();}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ applyDarkTheme();}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ applyLightTheme();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ onAddNewFile();}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ populateCommitHistory();}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ askQuestion(QWidget\ *parent,\ \textcolor{keyword}{const}\ QString\ \&title,\ \textcolor{keyword}{const}\ QString\ \&question);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ setupCommitHistoryDockWidget();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ setupBranchGraphView();}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ visualizeBranches();}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ showDiff(\textcolor{keyword}{const}\ QString\ \&fileName,\ \textcolor{keyword}{const}\ QString\ \&oldContent,\ \textcolor{keyword}{const}\ QString\ \&newContent);}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ eventFilter(QObject\ *obj,\ QEvent\ *event);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ compareBlobsInTree(\textcolor{keyword}{const}\ QMap<QString,\ QString>\ \&lastBlobs,\ \textcolor{keyword}{const}\ QMap<QString,\ QString>\ \&previousBlobs,\ \textcolor{keyword}{const}\ QString\ \&basePath);}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ compareTrees(\textcolor{keyword}{const}\ QMap<QString,\ QString>\ \&lastTrees,\ \textcolor{keyword}{const}\ QMap<QString,\ QString>\ \&previousTrees,\ \textcolor{keyword}{const}\ QString\ \&basePath);}
+\DoxyCodeLine{00104\ \};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAINWINDOW\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,166 @@
+\doxysection{tree.\+hpp}
+\hypertarget{tree_8hpp_source}{}\label{tree_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TREE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TREE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}blob.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Qt}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QMap>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QJsonObject>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QJsonDocument>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QFile>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QDir>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QCryptographicHash>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTree}{Tree}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ QMap<QString,\ QString>\ blobs;\ \ \textcolor{comment}{//\ Maps\ filenames\ to\ blob\ hashes}}
+\DoxyCodeLine{00019\ \ \ \ \ QMap<QString,\ QString>\ trees;\ \ \textcolor{comment}{//\ Maps\ directory\ names\ to\ subtree\ hashes}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{mutable}\ QString\ hash;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cached\ hash\ of\ the\ current\ tree}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Add\ a\ blob\ (file)\ to\ the\ tree}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ addBlob(\textcolor{keyword}{const}\ QString\&\ name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBlob}{Blob}}\&\ blob)}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ blobs[name]\ =\ blob.getHash();}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Add\ a\ subtree\ (directory)\ to\ the\ tree}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ addTree(\textcolor{keyword}{const}\ QString\&\ name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTree}{Tree}}\&\ tree)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ trees[name]\ =\ tree.getHash();}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Return\ the\ hash\ of\ the\ tree,\ generating\ it\ if\ necessary}}
+\DoxyCodeLine{00036\ \ \ \ \ QString\ getHash()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hash.isEmpty())\ \textcolor{comment}{//\ Generate\ the\ hash\ only\ if\ it\ hasn't\ been\ generated\ already}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ QByteArray\ combinedData;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ blobHash\ :\ blobs)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ combinedData.append(blobHash.toUtf8());}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ treeHash\ :\ trees)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ combinedData.append(treeHash.toUtf8());}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ hash\ =\ generateHash(combinedData);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hash;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Get\ all\ blobs\ in\ the\ tree}}
+\DoxyCodeLine{00056\ \ \ \ \ QMap<QString,\ QString>\ getBlobs()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ blobs;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Get\ all\ subtrees\ in\ the\ tree}}
+\DoxyCodeLine{00062\ \ \ \ \ QMap<QString,\ QString>\ getTrees()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ trees;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Convert\ the\ tree\ to\ JSON\ format}}
+\DoxyCodeLine{00068\ \ \ \ \ QJsonObject\ toJson()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ QJsonObject\ json;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ QJsonObject\ treeJson;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ QJsonObject\ blobJson;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ blobs.begin();\ it\ !=\ blobs.end();\ ++it)}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ blobJson[it.key()]\ =\ it.value();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ trees.begin();\ it\ !=\ trees.end();\ ++it)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ treeJson[it.key()]\ =\ it.value();}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}blobs"{}}]\ =\ blobJson;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ json[\textcolor{stringliteral}{"{}trees"{}}]\ =\ treeJson;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ json;}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ Tree\ object\ from\ JSON\ data}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTree}{Tree}}\ fromJson(\textcolor{keyword}{const}\ QJsonObject\&\ json)}
+\DoxyCodeLine{00092\ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTree}{Tree}}\ tree;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ QJsonObject\ blobJson\ =\ json[\textcolor{stringliteral}{"{}blobs"{}}].toObject();}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ QJsonObject\ treeJson\ =\ json[\textcolor{stringliteral}{"{}trees"{}}].toObject();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ QString\&\ key\ :\ blobJson.keys())}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ tree.blobs[key]\ =\ blobJson[key].toString();}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ QString\&\ key\ :\ treeJson.keys())}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ tree.trees[key]\ =\ treeJson[key].toString();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tree;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Save\ the\ tree\ to\ disk}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{bool}\ saveToDisk(\textcolor{keyword}{const}\ QString\&\ rootPath)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00112\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ QString\ treeDir\ =\ rootPath\ +\ \textcolor{stringliteral}{"{}/.trees"{}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!QDir(treeDir).exists())}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ QDir().mkpath(treeDir);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ QString\ treeFilePath\ =\ treeDir\ +\ \textcolor{stringliteral}{"{}/tree\_"{}}\ +\ getHash()\ +\ \textcolor{stringliteral}{"{}.json"{}};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ QFile\ treeFile(treeFilePath);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (treeFile.open(QIODevice::WriteOnly))}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ QJsonDocument\ doc(toJson());}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ treeFile.write(doc.toJson());}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ treeFile.close();}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ Load\ a\ Tree\ from\ disk}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTree}{Tree}}\ fromDisk(\textcolor{keyword}{const}\ QString\&\ treeHash,\ \textcolor{keyword}{const}\ QString\&\ rootPath)}
+\DoxyCodeLine{00134\ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ QString\ treeFilePath\ =\ rootPath\ +\ \textcolor{stringliteral}{"{}/.trees/tree\_"{}}\ +\ treeHash\ +\ \textcolor{stringliteral}{"{}.json"{}};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ QFile\ treeFile(treeFilePath);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTree}{Tree}}\ tree;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (treeFile.open(QIODevice::ReadOnly))}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ QByteArray\ treeData\ =\ treeFile.readAll();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ QJsonDocument\ doc\ =\ QJsonDocument::fromJson(treeData);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ QJsonObject\ jsonObj\ =\ doc.object();}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ tree\ =\ Tree::fromJson(jsonObj);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ tree.hash\ =\ treeHash;\ \textcolor{comment}{//\ Assign\ the\ hash\ to\ the\ loaded\ tree}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ treeFile.close();}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tree;}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ Generate\ a\ SHA-\/1\ hash\ for\ the\ tree}}
+\DoxyCodeLine{00154\ \ \ \ \ QString\ generateHash(\textcolor{keyword}{const}\ QByteArray\&\ data)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00155\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ QByteArray\ hashData\ =\ QCryptographicHash::hash(data,\ QCryptographicHash::Sha1);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hashData.toHex();}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TREE\_HPP}}
+
+\end{DoxyCode}

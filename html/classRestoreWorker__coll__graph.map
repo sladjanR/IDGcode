@@ -1,0 +1,11 @@
+<map id="RestoreWorker" name="RestoreWorker">
+<area shape="rect" id="Node000001" title=" " alt="" coords="21,1600,139,1691"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,1189,67,1259"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="44,1273,78,1600,73,1601,38,1274"/>
+<area shape="rect" id="Node000003" href="$classRepository.html" title=" " alt="" coords="91,912,248,1536"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="106,1536,96,1584,90,1583,101,1535"/>
+<area shape="rect" id="Node000004" href="$classCommit.html" title=" " alt="" coords="110,373,229,848"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="172,848,172,895,167,895,167,848"/>
+<area shape="rect" id="Node000005" href="$classTree.html" title=" " alt="" coords="113,5,225,309"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="172,309,172,356,167,356,167,309"/>
+</map>

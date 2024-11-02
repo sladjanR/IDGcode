@@ -1,0 +1,95 @@
+\doxysection{Login\+Window Class Reference}
+\hypertarget{classLoginWindow}{}\label{classLoginWindow}\index{LoginWindow@{LoginWindow}}
+
+
+Inheritance diagram for Login\+Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classLoginWindow__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Login\+Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classLoginWindow__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLoginWindow_aa4c04d26b299de00156bbf3c32b2a082}\label{classLoginWindow_aa4c04d26b299de00156bbf3c32b2a082} 
+{\bfseries Login\+Window} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLoginWindow_ad8a6ec52a0b638e81751867338a17bf5}\label{classLoginWindow_ad8a6ec52a0b638e81751867338a17bf5} 
+void {\bfseries on\+Login\+Clicked} ()
+\item 
+\Hypertarget{classLoginWindow_accf15d436508e6fc12310151f43591a1}\label{classLoginWindow_accf15d436508e6fc12310151f43591a1} 
+void {\bfseries on\+Register\+Clicked} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLoginWindow_a9aeebfd5025fe47ff41619e12342d80c}\label{classLoginWindow_a9aeebfd5025fe47ff41619e12342d80c} 
+void {\bfseries setup\+UI} ()
+\item 
+\Hypertarget{classLoginWindow_a09fe17202fa2d0d3ed0c321a44ab1670}\label{classLoginWindow_a09fe17202fa2d0d3ed0c321a44ab1670} 
+bool {\bfseries connect\+To\+Database} ()
+\item 
+\Hypertarget{classLoginWindow_a08840637cc9e07bdea7f39298b75d725}\label{classLoginWindow_a08840637cc9e07bdea7f39298b75d725} 
+bool {\bfseries is\+User\+Registered} (const QString \&username)
+\item 
+\Hypertarget{classLoginWindow_a9feb5e4eb96c246025f990ab8e24b2a5}\label{classLoginWindow_a9feb5e4eb96c246025f990ab8e24b2a5} 
+bool {\bfseries register\+User} (const QString \&username, const QString \&email, const QString \&password)
+\item 
+\Hypertarget{classLoginWindow_a8f0fadb8a136710f2d66b60f6d777979}\label{classLoginWindow_a8f0fadb8a136710f2d66b60f6d777979} 
+bool {\bfseries login\+User} (const QString \&username, const QString \&password)
+\item 
+\Hypertarget{classLoginWindow_aa10224e484edcdeeedc0a283a0cd00a4}\label{classLoginWindow_aa10224e484edcdeeedc0a283a0cd00a4} 
+void {\bfseries animate\+Field\+Error} (QWidget \texorpdfstring{$\ast$}{*}field)
+\item 
+\Hypertarget{classLoginWindow_adef228e73c003d2cb2515d8e817a20c2}\label{classLoginWindow_adef228e73c003d2cb2515d8e817a20c2} 
+void {\bfseries reset\+Field\+Styles} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLoginWindow_a342333b1ee4c07522bbf5ae69d0f8998}\label{classLoginWindow_a342333b1ee4c07522bbf5ae69d0f8998} 
+QSql\+Database {\bfseries db}
+\item 
+\Hypertarget{classLoginWindow_a1408d09d8afcb1ed4c5a1fc437906b12}\label{classLoginWindow_a1408d09d8afcb1ed4c5a1fc437906b12} 
+QLine\+Edit \texorpdfstring{$\ast$}{*} {\bfseries user\+Edit}
+\item 
+\Hypertarget{classLoginWindow_a750f92b440410913d0473e70181659fe}\label{classLoginWindow_a750f92b440410913d0473e70181659fe} 
+QLine\+Edit \texorpdfstring{$\ast$}{*} {\bfseries password\+Edit}
+\item 
+\Hypertarget{classLoginWindow_af87710b4e0a35a8e78eeb4e819477ceb}\label{classLoginWindow_af87710b4e0a35a8e78eeb4e819477ceb} 
+QLine\+Edit \texorpdfstring{$\ast$}{*} {\bfseries email\+Edit}
+\item 
+\Hypertarget{classLoginWindow_a0a31f6b5ba91c311b38670db03df3eab}\label{classLoginWindow_a0a31f6b5ba91c311b38670db03df3eab} 
+QLine\+Edit \texorpdfstring{$\ast$}{*} {\bfseries confirm\+Password\+Edit}
+\item 
+\Hypertarget{classLoginWindow_a2d3e6bf224cd85677e10355cd68a2bd5}\label{classLoginWindow_a2d3e6bf224cd85677e10355cd68a2bd5} 
+QPush\+Button \texorpdfstring{$\ast$}{*} {\bfseries login\+Button}
+\item 
+\Hypertarget{classLoginWindow_a692aea646c278a8865add8f36e77da5a}\label{classLoginWindow_a692aea646c278a8865add8f36e77da5a} 
+QPush\+Button \texorpdfstring{$\ast$}{*} {\bfseries register\+Button}
+\item 
+\Hypertarget{classLoginWindow_ad4d5effd350f5144bf8b6d154fec1563}\label{classLoginWindow_ad4d5effd350f5144bf8b6d154fec1563} 
+QLabel \texorpdfstring{$\ast$}{*} {\bfseries email\+Label}
+\item 
+\Hypertarget{classLoginWindow_ae03bfe1f19f69c25d0a96f0225f71c28}\label{classLoginWindow_ae03bfe1f19f69c25d0a96f0225f71c28} 
+QLabel \texorpdfstring{$\ast$}{*} {\bfseries confirm\+Password\+Label}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+loginwindow.\+hpp\item 
+loginwindow.\+cpp\end{DoxyCompactItemize}

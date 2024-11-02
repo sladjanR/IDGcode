@@ -1,0 +1,23 @@
+{
+	"BUILD_DIR" : "/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/IDGcode_autogen",
+	"CMAKE_BINARY_DIR" : "/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/jecaj_lava/Projekat/IDGcode",
+	"CMAKE_SOURCE_DIR" : "/home/jecaj_lava/Projekat/IDGcode",
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/IDGcode_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/jecaj_lava/Projekat/IDGcode/images/7176459-removebg-preview.png"
+	],
+	"LOCK_FILE" : "/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/IDGcode_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/opt/Qt/6.7.2/gcc_64/./libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/jecaj_lava/Projekat/IDGcode/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/IDGcode_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/jecaj_lava/Projekat/IDGcode/resources.qrc",
+	"VERBOSITY" : 0
+}

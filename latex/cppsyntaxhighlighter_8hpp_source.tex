@@ -1,0 +1,41 @@
+\doxysection{cppsyntaxhighlighter.\+hpp}
+\hypertarget{cppsyntaxhighlighter_8hpp_source}{}\label{cppsyntaxhighlighter_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CPPSYNTAXHIGHLIGHTER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CPPSYNTAXHIGHLIGHTER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Qt}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QSyntaxHighlighter>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QTextCharFormat>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QRegularExpression>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCPPSyntaxHighlighter}{CPPSyntaxHighlighter}}\ :\ \textcolor{keyword}{public}\ QSyntaxHighlighter}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classCPPSyntaxHighlighter}{CPPSyntaxHighlighter}}(QTextDocument\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ QSyntaxHighlighter\ interfejs}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ highlightBlock(\textcolor{keyword}{const}\ QString\ \&text)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCPPSyntaxHighlighter_1_1HighlightingRule}{HighlightingRule}}}
+\DoxyCodeLine{00022\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ QRegularExpression\ pattern;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ QTextCharFormat\ format;}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+\DoxyCodeLine{00026\ \ \ \ \ QVector<HighlightingRule>\ highlightingRules;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ QTextCharFormat\ keywordFormat;}
+\DoxyCodeLine{00029\ \ \ \ \ QTextCharFormat\ classFormat;}
+\DoxyCodeLine{00030\ \ \ \ \ QTextCharFormat\ singleLineCommentFormat;}
+\DoxyCodeLine{00031\ \ \ \ \ QTextCharFormat\ multiLineCommentFormat;}
+\DoxyCodeLine{00032\ \ \ \ \ QTextCharFormat\ quotationFormat;}
+\DoxyCodeLine{00033\ \ \ \ \ QTextCharFormat\ functionFormat;}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CPPSYNTAXHIGHLIGHTER\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,107,75,133"/>
+<area shape="rect" id="Node000001" href="$classCommitWorker.html" title=" " alt="" coords="130,5,239,32"/>
+<area shape="poly" id="edge4_Node000000_Node000001" title=" " alt="" coords="62,93,89,67,121,42,143,30,146,35,124,46,92,71,65,97"/>
+<area shape="rect" id="Node000002" href="$classCompareWorker.html" title=" " alt="" coords="127,56,242,83"/>
+<area shape="poly" id="edge5_Node000000_Node000002" title=" " alt="" coords="89,100,143,81,145,86,91,105"/>
+<area shape="rect" id="Node000003" href="$classMergeWorker.html" title=" " alt="" coords="135,107,234,133"/>
+<area shape="poly" id="edge6_Node000000_Node000003" title=" " alt="" coords="90,117,135,117,135,123,90,123"/>
+<area shape="rect" id="Node000004" href="$classRestoreWorker.html" title=" " alt="" coords="130,157,239,184"/>
+<area shape="poly" id="edge7_Node000000_Node000004" title=" " alt="" coords="91,135,145,154,143,159,89,140"/>
+<area shape="rect" id="Node000005" href="$classSendRepoWorker.html" title=" " alt="" coords="123,208,246,235"/>
+<area shape="poly" id="edge8_Node000000_Node000005" title=" " alt="" coords="65,143,92,169,124,194,146,205,143,210,121,198,89,173,62,147"/>
+</map>
